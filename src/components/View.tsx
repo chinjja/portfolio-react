@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { AppBar, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Collapse, Container, Grid, IconButton, Link, makeStyles, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Typography } from '@material-ui/core';
 import banner from '../images/banner.jpg'
 import me from '../images/me.jpg'
+import m1 from '../images/m1.png'
+import cal from '../images/calendar.png'
+import cafe from '../images/cafe.png'
 import { Variant } from '@material-ui/core/styles/createTypography';
 import { ExpandMore } from '@material-ui/icons';
 
@@ -107,8 +110,8 @@ export function View() {
 
                         <Grid item xs={12}>
                             {Description("App Developer", [
-                                "꼼꼼한 개발자",
-                                "빈 틈을 채워나가는 개발자",
+                                "코드로 일하는 개발자",
+                                "문제해결을 즐기는 개발자",
                                 "사람들이 필요로 하는 것이 무엇인지 고민하는 개발자",
                             ])}
                         </Grid>
@@ -209,6 +212,14 @@ function Stacks() {
         {Description("Git", [
             "Git을 활용한 소스코드 버전 관리 및 협업을 할 수 있습니다.",
         ])}
+        {Description("ReactiveX, RxJava, RxDart", [
+            "반응형 프로그래밍 작성 가능.",
+            "비동기에 대해서 이해하고 있으며 Rx를 쓰지 않고도 개발가능.",
+        ])}
+        {Description("Flutter", [
+            "현재 습득 중 입니다..",
+            "레퍼런스를 참고해서 생각을 앱으로 제작 가능.",
+        ])}
         </>
     )
 }
@@ -262,29 +273,55 @@ function Projects() {
         <>
         <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
-                <CollapseCard title='Shrimp and Chorizo Raella' subheader='September 14, 2016' content={
+                <CollapseCard 
+                image={m1}
+                title='장비 제어 프로그램 with Java' 
+                subheader='' 
+                content={
                     <>
-                    <Typography paragraph>Method:</Typography>
-                    <Typography paragraph>
-                        Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 100
-                        minutes.
-                    </Typography>
+                    <Typography paragraph>Java, Swing을 사용하여 사내 제작 설비 제어 프로그램 개발.</Typography>
+                    <Typography paragraph>구현한 기능</Typography>
+                    <Typography paragraph>1. UI (Swing)</Typography>
+                    <Typography paragraph>2. DB (SQLite)</Typography>
+                    <Typography paragraph>3. 각종 디바이스 통신 (Serial or TCP or HTTP)</Typography>
+                    <Typography paragraph>4. 설비 제어</Typography>
                     </>
                 }/>
             </Grid>
             <Grid item xs={12} sm={6}>
-                <CollapseCard title='hello' subheader='world' content={
+                <CollapseCard 
+                image={cal}
+                title='Calendar App with Flutter' 
+                subheader='https://github.com/chinjja/flutter_calendar_app' 
+                content={
                     <>
-                    <Typography paragraph>Method:</Typography>
-                    <Typography paragraph>
-                        Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 100
-                        minutes.
-                    </Typography>
+                    <Typography paragraph>Flutter의 기본적인 사용법을 익히기 위해 진행</Typography>
+                    <Typography paragraph>구현한 기능</Typography>
+                    <Typography paragraph>1. 월간 보기(수직 스크롤)</Typography>
+                    <Typography paragraph>2. 일간 보기</Typography>
+                    <Typography paragraph>3. 이벤트 상세보기</Typography>
+                    <Typography paragraph>4. 이벤트 편집기능(yet..)</Typography>
                     </>
                 }/>
             </Grid>
             <Grid item xs={12} sm={6}>
-                <CollapseCard title='hello' subheader='world' content={<Typography>HI</Typography>}/>
+                <CollapseCard 
+                image={cafe}
+                title='Cafe App with Spring boot' 
+                subheader='https://github.com/chinjja/cafe' 
+                content={
+                    <>
+                    <Typography paragraph>Spring boot의 기본적인 사용법을 익히기 위해 진행</Typography>
+                    <Typography paragraph>구현한 기능</Typography>
+                    <Typography paragraph>1. 재귀적인 카테고리 생성/삭제</Typography>
+                    <Typography paragraph>2. 재귀적인 답글 생성/삭제</Typography>
+                    <Typography paragraph>3. 좋아요 기능</Typography>
+                    <Typography paragraph>4. 조회수 기능 (1분)</Typography>
+                    <Typography paragraph>5. 카페가입/탈퇴 기능</Typography>
+                    <Typography paragraph>6. 카페 운영진 가입승인 기능</Typography>
+                    <Typography paragraph>7. Bootstrap UI</Typography>
+                    </>
+                }/>
             </Grid>
         </Grid>
         </>
@@ -292,6 +329,7 @@ function Projects() {
 }
 
 interface CollapseCardProps {
+    image: string,
     title: string,
     subheader: string,
     content: JSX.Element,
@@ -311,8 +349,9 @@ function CollapseCard(props: CollapseCardProps) {
                     component="img"
                     alt="Contemplative Reptile"
                     height="140"
-                    image={process.env.PUBLIC_URL + '/images/projects/s7/m1.png'}
+                    image={props.image}
                     title="Contemplative Reptile"
+                    
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
