@@ -299,8 +299,8 @@ function Projects() {
                     <Typography paragraph>구현한 기능</Typography>
                     <Typography paragraph>1. 월간 보기(수직 스크롤)</Typography>
                     <Typography paragraph>2. 일간 보기</Typography>
-                    <Typography paragraph>3. 이벤트 상세보기</Typography>
-                    <Typography paragraph>4. 이벤트 편집기능(yet..)</Typography>
+                    <Typography paragraph>3. 타임라인 보기</Typography>
+                    <Typography paragraph>4. 이벤트 편집기능</Typography>
                     </>
                 }/>
             </Grid>
