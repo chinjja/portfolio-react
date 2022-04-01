@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppBar, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Collapse, Container, Grid, IconButton, Link, makeStyles, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Collapse, Container, Divider, Grid, IconButton, Link, makeStyles, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Typography } from '@material-ui/core';
 import banner from '../images/banner.jpg'
 import me from '../images/me.jpg'
 import m1 from '../images/m1.png'
@@ -85,6 +85,9 @@ export function View() {
                             maxWidth: "80px",
                             marginBottom: "-20px"
                     }}/>
+                    <br/>
+                    {TitleLink("🐱 Portfolio가 여기로 이전되었습니다.", "https://chinjja.github.io/portfolio_flutter/")}
+                    <br/>
                     <Grid container spacing={3}>
                         <Grid item xs={12}>
                             {Subtitle('안녕하세요, 박정현입니다! 👋', 'h4')}
@@ -155,6 +158,20 @@ export function View() {
 function Subtitle(title: string, variant: Variant = "h5") {
     const classes = useStyles();
     return <Typography className={classes.subtitle} variant={variant}>{title}</Typography>
+}
+
+function TitleLink(label: string, url: string, disable_href: boolean | undefined = undefined) {
+    return (
+        <div style={{
+            fontSize: 30,
+            marginBottom: "16px",
+        }}>
+            <Typography style={{
+                fontSize: 30,
+            }} display="block" align="left">{label}</Typography>
+            <Link href={disable_href?undefined:url} display="block" align="left">{url}</Link>
+        </div>
+    )
 }
 
 function TypoLink(label: string, url: string, disable_href: boolean | undefined = undefined) {
